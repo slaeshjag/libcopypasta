@@ -87,9 +87,6 @@ void c_dynalloc_release(struct dynalloc *da, DYNALLOC_SIZE_TYPE id) {
 	da->used[n] = da->used[used - 1];
 	da->used[used - 1] = -1;
 	
-	/* Re-locate data */
-	memcpy(da->data + n * da->element_sz, da->data + (used - 1) * da->element_sz, da->element_sz);
-
 	da->upos[da->used[n]] = n;
 	da->avail[da->left] = id;
 	da->left++;
@@ -106,5 +103,5 @@ void *c_dynalloc_get(struct dynalloc *da, DYNALLOC_SIZE_TYPE id) {
 	if (da->upos[id] == -1)
 		return NULL;
 	
-	return da->data + da->upos[id] * da->element_sz;
+	return da->data + id * da->element_sz;
 }
