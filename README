@@ -1,0 +1,9 @@
+*** libcopypasta ***
+
+libcopypasta is a companion library to libdarnit, and aims to collect
+not depending on multimedia output that would other fulfill the goals
+of libdarnit.
+
+libdarnit and libcopypasta is to collect functionality often used in
+game development with an API generic enough that it can be used in most
+projects.
