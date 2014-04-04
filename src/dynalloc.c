@@ -108,3 +108,10 @@ void *c_dynalloc_get(struct dynalloc *da, DYNALLOC_SIZE_TYPE id) {
 	
 	return da->data + da->upos[id] * da->element_sz;
 }
+
+
+DYNALLOC_SIZE_TYPE *c_dynalloc_used_get(struct dynalloc *da) {
+	if (!da)
+		return NULL;
+	return da->used;
+}
