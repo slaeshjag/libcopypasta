@@ -112,3 +112,10 @@ DYNALLOC_SIZE_TYPE *c_dynalloc_used_get(struct dynalloc *da) {
 		return NULL;
 	return da->used;
 }
+
+
+DYNALLOC_SIZE_TYPE c_dynalloc_entries(struct dynalloc *da) {
+	if (!da)
+		return 0;
+	return da->total - da->left;
+}

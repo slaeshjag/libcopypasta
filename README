@@ -3,3 +3,4 @@
 libcopypasta is a companion library to libdarnit, and aims to collect
 code often used in games, but doesn't in itself depend on multimedia output.
 
+libcopypasta is intended to only depend on core system libraries.
