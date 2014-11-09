@@ -5,8 +5,8 @@ LIBNAME		=	libcopypasta.so
 LIB		=	$(TOPDIR)/bin/$(LIBNAME)
 
 VERSION		=	v.0.1
-#DBGFLAGS	=	-O0 -g -D__DEBUG__
-DBGFLAGS	=	-O3
+DBGFLAGS	=	-O0 -g -D__DEBUG__
+#DBGFLAGS	=	-O3
 #General flags
 CFLAGS		+=	-Wall -Wextra -shared -fPIC $(DBGFLAGS)
 LDFLAGS		+=	-Wl,-soname,$(LIBNAME)
@@ -27,4 +27,10 @@ CFLAGS		+=	-DDYNALLOC_DATA_TYPE="long long int"
 CONFIG_HEADER	=	config_large.h
 else
 CONFIG_HEADER	=	config.h
+endif
+
+
+ifeq ($(BUILDFOR), WIN32)
+else
+	LDFLAGS	+=	-ldl
 endif
