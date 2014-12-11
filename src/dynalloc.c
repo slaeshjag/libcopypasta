@@ -88,6 +88,7 @@ void c_dynalloc_release(struct dynalloc *da, DYNALLOC_SIZE_TYPE id) {
 	da->used[used - 1] = -1;
 	
 	da->upos[da->used[n]] = n;
+	da->upos[id] = -1;
 	da->avail[da->left] = id;
 	da->left++;
 
